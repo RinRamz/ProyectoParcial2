@@ -126,7 +126,7 @@ int PJ::getPoderM()
 void Player::atacar(int suerte)
 {
 	int opcion;
-	std::cout << "Que opcion eliges para atacar?: \n" << "1.Espada.\n" << "2.Magia.\n" << "3.A punio limpio.\n" << "4.Curarte.\n";
+	std::cout << "Que opcion eliges para atacar?: \n" << "1.Espada.\n" << "2.Magia.\n" << "3.A punio limpio.\n";
 	std::cin >> opcion;
 	switch (opcion)
 	{
@@ -224,24 +224,21 @@ int PJ::getHP()
 
 
 //metodos
-void Historia(NPC*);
-bool seguirJugando(int);
+void Historia();
 //main
 int main()
 {
-	NPC* enePeCe[1];	
-	enePeCe[0] = new NPC(30, "churrumais", "vendedor");
-	Historia(enePeCe[0]);
+	Historia();
 }
 
-void Historia(NPC* npc1)
+void Historia()
 {
 	srand((unsigned int)time(NULL));
 	int hpV[5], hpJ = 60;
 	Villano* malo[5];
 	for (int i = 0; i < 5; i++)
 	{
-		hpV[i] = rand() % 30 + 60;
+		hpV[i] = rand() % 30 + 30;
 	}
 	std::string nombreP, nombreV;
 	malo[0] = new Villano(300, "Biff", 20, 30, hpV[0], 10, 2, 0);
@@ -377,12 +374,38 @@ void Historia(NPC* npc1)
 											std::cout << "Vas a ver." << std::endl;
 											std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 											std::cout << "Continuara...." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										case 2:
 											std::cout << "El paladin detiene un intento de asesinato hacie ti, volteas a ver quien fue y..." << std::endl;
 											std::cout << "Continuara..." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -393,7 +416,20 @@ void Historia(NPC* npc1)
 										std::cout << "Buscan un lugar donde dormir, despues de caminar un rato, encuentran donde hospedarse, el paladin paga las habitacion y cada uno va a dormir" << std::endl;
 										std::cout << "Al despertar, te encuetras rodeado, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 										std::cout << nombreV << " te apuniala, mueres." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -404,7 +440,20 @@ void Historia(NPC* npc1)
 									std::cout << "Decides acampar ahi, despues de un rato dormidos, despiertas y se encuentran rodeados.\n";
 									std::cout << "Ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 									std::cout << nombreV << " te apuniala, mueres." << std::endl;
-									seguirJugando(opc);
+									std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+									std::cin >> opc;
+									switch (opc)
+									{
+									case 1:
+										jugando = true;
+										break;
+									case 2:
+										jugando = false;
+										break;
+									default:
+										std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+										break;
+									}
 									break;
 								default:
 									std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -434,11 +483,37 @@ void Historia(NPC* npc1)
 											std::cout << "Vas a ver." << std::endl;
 											std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 											std::cout << "Continuara...." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										case 2:
 											std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -450,7 +525,20 @@ void Historia(NPC* npc1)
 										std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 										std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 										std::cout << "Continuara...." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										break;
@@ -459,7 +547,20 @@ void Historia(NPC* npc1)
 								case 2:
 									std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 									std::cout << nombreV << " te apuniala, mueres." << std::endl;
-									seguirJugando(opc);
+									std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+									std::cin >> opc;
+									switch (opc)
+									{
+									case 1:
+										jugando = true;
+										break;
+									case 2:
+										jugando = false;
+										break;
+									default:
+										std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+										break;
+									}
 									break;
 								default:
 									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -472,7 +573,20 @@ void Historia(NPC* npc1)
 							}
 						case 2:
 							std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-							seguirJugando(opc);
+							std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+							std::cin >> opc;
+							switch (opc)
+							{
+							case 1:
+								jugando = true;
+								break;
+							case 2:
+								jugando = false;
+								break;
+							default:
+								std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+								break;
+							}
 							break;
 						}
 						break;
@@ -551,10 +665,36 @@ void Historia(NPC* npc1)
 										hpJ = 60;
 										std::cout << "Al despertar, vess una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 										std::cout << nombreV << " te apuniala, mueres." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 									case 2:
 										std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -609,11 +749,37 @@ void Historia(NPC* npc1)
 													std::cout << "Vas a ver." << std::endl;
 													std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 													std::cout << "Continuara...." << std::endl;
-													seguirJugando(opc);
+													std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+													std::cin >> opc;
+													switch (opc)
+													{
+													case 1:
+														jugando = true;
+														break;
+													case 2:
+														jugando = false;
+														break;
+													default:
+														std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+														break;
+													}
 													break;
 												case 2:
 													std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-													seguirJugando(opc);
+													std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+													std::cin >> opc;
+													switch (opc)
+													{
+													case 1:
+														jugando = true;
+														break;
+													case 2:
+														jugando = false;
+														break;
+													default:
+														std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+														break;
+													}
 													break;
 												default:
 													std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -625,7 +791,20 @@ void Historia(NPC* npc1)
 												std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 												std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 												std::cout << "Continuara...." << std::endl;
-												seguirJugando(opc);
+												std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+												std::cin >> opc;
+												switch (opc)
+												{
+												case 1:
+													jugando = true;
+													break;
+												case 2:
+													jugando = false;
+													break;
+												default:
+													std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+													break;
+												}
 												break;
 											default:
 												break;
@@ -634,7 +813,20 @@ void Historia(NPC* npc1)
 										case 2:
 											std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 											std::cout << nombreV << " te apuniala, mueres." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -643,7 +835,20 @@ void Historia(NPC* npc1)
 										break;
 									case 2:
 										std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -656,7 +861,20 @@ void Historia(NPC* npc1)
 								}
 							case 2:
 								std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							default:
 								std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -683,11 +901,37 @@ void Historia(NPC* npc1)
 										std::cout << "Vas a ver." << std::endl;
 										std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 										std::cout << "Continuara...." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									case 2:
 										std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -699,7 +943,20 @@ void Historia(NPC* npc1)
 									std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 									std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 									std::cout << "Continuara...." << std::endl;
-									seguirJugando(opc);
+									std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+									std::cin >> opc;
+									switch (opc)
+									{
+									case 1:
+										jugando = true;
+										break;
+									case 2:
+										jugando = false;
+										break;
+									default:
+										std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+										break;
+									}
 									break;
 								default:
 									std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -709,7 +966,20 @@ void Historia(NPC* npc1)
 							case 2:
 								std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 								std::cout << nombreV << " te apuniala, mueres." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							default:
 								std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -814,12 +1084,38 @@ void Historia(NPC* npc1)
 												std::cout << "Vas a ver." << std::endl;
 												std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 												std::cout << "Continuara...." << std::endl;
-												seguirJugando(opc);
+												std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+												std::cin >> opc;
+												switch (opc)
+												{
+												case 1:
+													jugando = true;
+													break;
+												case 2:
+													jugando = false;
+													break;
+												default:
+													std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+													break;
+												}
 												break;
 											case 2:
 												std::cout << "El paladin detiene un intento de asesinato hacie ti, volteas a ver quien fue y..." << std::endl;
 												std::cout << "Continuara..." << std::endl;
-												seguirJugando(opc);
+												std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+												std::cin >> opc;
+												switch (opc)
+												{
+												case 1:
+													jugando = true;
+													break;
+												case 2:
+													jugando = false;
+													break;
+												default:
+													std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+													break;
+												}
 												break;
 											default:
 												std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -830,7 +1126,20 @@ void Historia(NPC* npc1)
 											std::cout << "Buscan un lugar donde dormir, despues de caminar un rato, encuentran donde hospedarse, el paladin paga las habitacion y cada uno va a dormir" << std::endl;
 											std::cout << "Al despertar, te encuetras rodeado, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 											std::cout << nombreV << " te apuniala, mueres." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -841,7 +1150,20 @@ void Historia(NPC* npc1)
 										std::cout << "Decides acampar ahi, despues de un rato dormidos, despiertas y se encuentran rodeados.\n";
 										std::cout << "Ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 										std::cout << nombreV << " te apuniala, mueres." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -871,11 +1193,37 @@ void Historia(NPC* npc1)
 												std::cout << "Vas a ver." << std::endl;
 												std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 												std::cout << "Continuara...." << std::endl;
-												seguirJugando(opc);
+												std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+												std::cin >> opc;
+												switch (opc)
+												{
+												case 1:
+													jugando = true;
+													break;
+												case 2:
+													jugando = false;
+													break;
+												default:
+													std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+													break;
+												}
 												break;
 											case 2:
 												std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-												seguirJugando(opc);
+												std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+												std::cin >> opc;
+												switch (opc)
+												{
+												case 1:
+													jugando = true;
+													break;
+												case 2:
+													jugando = false;
+													break;
+												default:
+													std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+													break;
+												}
 												break;
 											default:
 												std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -887,7 +1235,20 @@ void Historia(NPC* npc1)
 											std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 											std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 											std::cout << "Continuara...." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											break;
@@ -896,7 +1257,20 @@ void Historia(NPC* npc1)
 									case 2:
 										std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 										std::cout << nombreV << " te apuniala, mueres." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -909,7 +1283,20 @@ void Historia(NPC* npc1)
 								}
 							case 2:
 								std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-								seguirJugando(opc);
+									std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+	std::cin >> opc;
+	switch (opc)
+	{
+	case 1:
+		jugando = true;
+		break;
+	case 2:
+		jugando = false;
+		break;
+	default:
+		std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+		break;
+	}
 								break;
 							}
 							break;
@@ -988,10 +1375,36 @@ void Historia(NPC* npc1)
 											hpJ = 60;
 											std::cout << "Al despertar, vess una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 											std::cout << nombreV << " te apuniala, mueres." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 										case 2:
 											std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1046,11 +1459,37 @@ void Historia(NPC* npc1)
 														std::cout << "Vas a ver." << std::endl;
 														std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 														std::cout << "Continuara...." << std::endl;
-														seguirJugando(opc);
+														std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+														std::cin >> opc;
+														switch (opc)
+														{
+														case 1:
+															jugando = true;
+															break;
+														case 2:
+															jugando = false;
+															break;
+														default:
+															std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+															break;
+														}
 														break;
 													case 2:
 														std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-														seguirJugando(opc);
+														std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+														std::cin >> opc;
+														switch (opc)
+														{
+														case 1:
+															jugando = true;
+															break;
+														case 2:
+															jugando = false;
+															break;
+														default:
+															std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+															break;
+														}
 														break;
 													default:
 														std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1062,7 +1501,20 @@ void Historia(NPC* npc1)
 													std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 													std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 													std::cout << "Continuara...." << std::endl;
-													seguirJugando(opc);
+													std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+													std::cin >> opc;
+													switch (opc)
+													{
+													case 1:
+														jugando = true;
+														break;
+													case 2:
+														jugando = false;
+														break;
+													default:
+														std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+														break;
+													}
 													break;
 												default:
 													break;
@@ -1071,7 +1523,20 @@ void Historia(NPC* npc1)
 											case 2:
 												std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 												std::cout << nombreV << " te apuniala, mueres." << std::endl;
-												seguirJugando(opc);
+												std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+												std::cin >> opc;
+												switch (opc)
+												{
+												case 1:
+													jugando = true;
+													break;
+												case 2:
+													jugando = false;
+													break;
+												default:
+													std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+													break;
+												}
 												break;
 											default:
 												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -1080,7 +1545,20 @@ void Historia(NPC* npc1)
 											break;
 										case 2:
 											std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1093,7 +1571,20 @@ void Historia(NPC* npc1)
 									}
 								case 2:
 									std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-									seguirJugando(opc);
+									std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+									std::cin >> opc;
+									switch (opc)
+									{
+									case 1:
+										jugando = true;
+										break;
+									case 2:
+										jugando = false;
+										break;
+									default:
+										std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+										break;
+									}
 									break;
 								default:
 									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -1120,11 +1611,37 @@ void Historia(NPC* npc1)
 											std::cout << "Vas a ver." << std::endl;
 											std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 											std::cout << "Continuara...." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										case 2:
 											std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1136,7 +1653,20 @@ void Historia(NPC* npc1)
 										std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 										std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 										std::cout << "Continuara...." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1146,7 +1676,20 @@ void Historia(NPC* npc1)
 								case 2:
 									std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 									std::cout << nombreV << " te apuniala, mueres." << std::endl;
-									seguirJugando(opc);
+									std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+									std::cin >> opc;
+									switch (opc)
+									{
+									case 1:
+										jugando = true;
+										break;
+									case 2:
+										jugando = false;
+										break;
+									default:
+										std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+										break;
+									}
 									break;
 								default:
 									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -1165,7 +1708,20 @@ void Historia(NPC* npc1)
 						break;
 					case 2:
 						std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-						seguirJugando(opc);
+						std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+						std::cin >> opc;
+						switch (opc)
+						{
+						case 1:
+							jugando = true;
+							break;
+						case 2:
+							jugando = false;
+							break;
+						default:
+							std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+							break;
+						}
 						break;
 					}
 					break;
@@ -1260,12 +1816,38 @@ void Historia(NPC* npc1)
 											std::cout << "Vas a ver." << std::endl;
 											std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 											std::cout << "Continuara...." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										case 2:
 											std::cout << "El paladin detiene un intento de asesinato hacie ti, volteas a ver quien fue y..." << std::endl;
 											std::cout << "Continuara..." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1276,7 +1858,20 @@ void Historia(NPC* npc1)
 										std::cout << "Buscan un lugar donde dormir, despues de caminar un rato, encuentran donde hospedarse, el paladin paga las habitacion y cada uno va a dormir" << std::endl;
 										std::cout << "Al despertar, te encuetras rodeado, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 										std::cout << nombreV << " te apuniala, mueres." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1287,7 +1882,20 @@ void Historia(NPC* npc1)
 									std::cout << "Decides acampar ahi, despues de un rato dormidos, despiertas y se encuentran rodeados.\n";
 									std::cout << "Ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 									std::cout << nombreV << " te apuniala, mueres." << std::endl;
-									seguirJugando(opc);
+									std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+									std::cin >> opc;
+									switch (opc)
+									{
+									case 1:
+										jugando = true;
+										break;
+									case 2:
+										jugando = false;
+										break;
+									default:
+										std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+										break;
+									}
 									break;
 								default:
 									std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1317,11 +1925,37 @@ void Historia(NPC* npc1)
 											std::cout << "Vas a ver." << std::endl;
 											std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 											std::cout << "Continuara...." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										case 2:
 											std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1333,7 +1967,20 @@ void Historia(NPC* npc1)
 										std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 										std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 										std::cout << "Continuara...." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										break;
@@ -1342,7 +1989,20 @@ void Historia(NPC* npc1)
 								case 2:
 									std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 									std::cout << nombreV << " te apuniala, mueres." << std::endl;
-									seguirJugando(opc);
+									std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+									std::cin >> opc;
+									switch (opc)
+									{
+									case 1:
+										jugando = true;
+										break;
+									case 2:
+										jugando = false;
+										break;
+									default:
+										std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+										break;
+									}
 									break;
 								default:
 									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -1355,7 +2015,20 @@ void Historia(NPC* npc1)
 							}
 						case 2:
 							std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-							seguirJugando(opc);
+							std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+							std::cin >> opc;
+							switch (opc)
+							{
+							case 1:
+								jugando = true;
+								break;
+							case 2:
+								jugando = false;
+								break;
+							default:
+								std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+								break;
+							}
 							break;
 						}
 						break;
@@ -1434,10 +2107,36 @@ void Historia(NPC* npc1)
 										hpJ = 60;
 										std::cout << "Al despertar, vess una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 										std::cout << nombreV << " te apuniala, mueres." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 									case 2:
 										std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1492,11 +2191,37 @@ void Historia(NPC* npc1)
 													std::cout << "Vas a ver." << std::endl;
 													std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 													std::cout << "Continuara...." << std::endl;
-													seguirJugando(opc);
+													std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+													std::cin >> opc;
+													switch (opc)
+													{
+													case 1:
+														jugando = true;
+														break;
+													case 2:
+														jugando = false;
+														break;
+													default:
+														std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+														break;
+													}
 													break;
 												case 2:
 													std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-													seguirJugando(opc);
+													std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+													std::cin >> opc;
+													switch (opc)
+													{
+													case 1:
+														jugando = true;
+														break;
+													case 2:
+														jugando = false;
+														break;
+													default:
+														std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+														break;
+													}
 													break;
 												default:
 													std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1508,7 +2233,20 @@ void Historia(NPC* npc1)
 												std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 												std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 												std::cout << "Continuara...." << std::endl;
-												seguirJugando(opc);
+												std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+												std::cin >> opc;
+												switch (opc)
+												{
+												case 1:
+													jugando = true;
+													break;
+												case 2:
+													jugando = false;
+													break;
+												default:
+													std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+													break;
+												}
 												break;
 											default:
 												break;
@@ -1517,7 +2255,20 @@ void Historia(NPC* npc1)
 										case 2:
 											std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 											std::cout << nombreV << " te apuniala, mueres." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -1526,7 +2277,20 @@ void Historia(NPC* npc1)
 										break;
 									case 2:
 										std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1539,7 +2303,20 @@ void Historia(NPC* npc1)
 								}
 							case 2:
 								std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							default:
 								std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -1566,11 +2343,37 @@ void Historia(NPC* npc1)
 										std::cout << "Vas a ver." << std::endl;
 										std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 										std::cout << "Continuara...." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									case 2:
 										std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1582,7 +2385,20 @@ void Historia(NPC* npc1)
 									std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 									std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 									std::cout << "Continuara...." << std::endl;
-									seguirJugando(opc);
+									std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+									std::cin >> opc;
+									switch (opc)
+									{
+									case 1:
+										jugando = true;
+										break;
+									case 2:
+										jugando = false;
+										break;
+									default:
+										std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+										break;
+									}
 									break;
 								default:
 									std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1592,7 +2408,20 @@ void Historia(NPC* npc1)
 							case 2:
 								std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 								std::cout << nombreV << " te apuniala, mueres." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							default:
 								std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -1611,7 +2440,20 @@ void Historia(NPC* npc1)
 					break;
 				case 2:
 					std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-					seguirJugando(opc);
+					std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+					std::cin >> opc;
+					switch (opc)
+					{
+					case 1:
+						jugando = true;
+						break;
+					case 2:
+						jugando = false;
+						break;
+					default:
+						std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+						break;
+					}
 					break;
 				default:
 					break;
@@ -1654,12 +2496,38 @@ void Historia(NPC* npc1)
 								std::cout << "Vas a ver." << std::endl;
 								std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 								std::cout << "Continuara...." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							case 2:
 								std::cout << "El paladin detiene un intento de asesinato hacie ti, volteas a ver quien fue y..." << std::endl;
 								std::cout << "Continuara..." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							default:
 								std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1670,7 +2538,20 @@ void Historia(NPC* npc1)
 							std::cout << "Buscan un lugar donde dormir, despues de caminar un rato, encuentran donde hospedarse, el paladin paga las habitacion y cada uno va a dormir" << std::endl;
 							std::cout << "Al despertar, te encuetras rodeado, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 							std::cout << nombreV << " te apuniala, mueres." << std::endl;
-							seguirJugando(opc);
+							std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+							std::cin >> opc;
+							switch (opc)
+							{
+							case 1:
+								jugando = true;
+								break;
+							case 2:
+								jugando = false;
+								break;
+							default:
+								std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+								break;
+							}
 							break;
 						default:
 							std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1681,7 +2562,20 @@ void Historia(NPC* npc1)
 						std::cout << "Decides acampar ahi, despues de un rato dormidos, despiertas y se encuentran rodeados.\n";
 						std::cout << "Ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 						std::cout << nombreV << " te apuniala, mueres." << std::endl;
-						seguirJugando(opc);
+						std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+						std::cin >> opc;
+						switch (opc)
+						{
+						case 1:
+							jugando = true;
+							break;
+						case 2:
+							jugando = false;
+							break;
+						default:
+							std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+							break;
+						}
 						break;
 					default:
 						std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1711,11 +2605,37 @@ void Historia(NPC* npc1)
 								std::cout << "Vas a ver." << std::endl;
 								std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 								std::cout << "Continuara...." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							case 2:
 								std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							default:
 								std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1727,7 +2647,20 @@ void Historia(NPC* npc1)
 							std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 							std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 							std::cout << "Continuara...." << std::endl;
-							seguirJugando(opc);
+							std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+							std::cin >> opc;
+							switch (opc)
+							{
+							case 1:
+								jugando = true;
+								break;
+							case 2:
+								jugando = false;
+								break;
+							default:
+								std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+								break;
+							}
 							break;
 						default:
 							break;
@@ -1736,7 +2669,20 @@ void Historia(NPC* npc1)
 					case 2:
 						std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 						std::cout << nombreV << " te apuniala, mueres." << std::endl;
-						seguirJugando(opc);
+						std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+						std::cin >> opc;
+						switch (opc)
+						{
+						case 1:
+							jugando = true;
+							break;
+						case 2:
+							jugando = false;
+							break;
+						default:
+							std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+							break;
+						}
 						break;
 					default:
 						std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -1824,10 +2770,36 @@ void Historia(NPC* npc1)
 								hpJ = 60;
 								std::cout << "Al despertar, vess una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy : " << nombreV << std::endl;
 								std::cout << nombreV << " te apuniala, mueres." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 							case 2:
 								std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							default:
 								std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1882,11 +2854,37 @@ void Historia(NPC* npc1)
 											std::cout << "Vas a ver." << std::endl;
 											std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 											std::cout << "Continuara...." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										case 2:
 											std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-											seguirJugando(opc);
+											std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+											std::cin >> opc;
+											switch (opc)
+											{
+											case 1:
+												jugando = true;
+												break;
+											case 2:
+												jugando = false;
+												break;
+											default:
+												std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+												break;
+											}
 											break;
 										default:
 											std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1898,7 +2896,20 @@ void Historia(NPC* npc1)
 										std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 										std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 										std::cout << "Continuara...." << std::endl;
-										seguirJugando(opc);
+										std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+										std::cin >> opc;
+										switch (opc)
+										{
+										case 1:
+											jugando = true;
+											break;
+										case 2:
+											jugando = false;
+											break;
+										default:
+											std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+											break;
+										}
 										break;
 									default:
 										break;
@@ -1907,7 +2918,20 @@ void Historia(NPC* npc1)
 								case 2:
 									std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 									std::cout << nombreV << " te apuniala, mueres." << std::endl;
-									seguirJugando(opc);
+									std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+									std::cin >> opc;
+									switch (opc)
+									{
+									case 1:
+										jugando = true;
+										break;
+									case 2:
+										jugando = false;
+										break;
+									default:
+										std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+										break;
+									}
 									break;
 								default:
 									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -1916,7 +2940,20 @@ void Historia(NPC* npc1)
 								break;
 							case 2:
 								std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							default:
 								std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1929,7 +2966,20 @@ void Historia(NPC* npc1)
 						}
 					case 2:
 						std::cout << "Te han matado:(, se acaba el juego." << std::endl;
-						seguirJugando(opc);
+						std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+						std::cin >> opc;
+						switch (opc)
+						{
+						case 1:
+							jugando = true;
+							break;
+						case 2:
+							jugando = false;
+							break;
+						default:
+							std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+							break;
+						}
 						break;
 					default:
 						std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -1956,11 +3006,37 @@ void Historia(NPC* npc1)
 								std::cout << "Vas a ver." << std::endl;
 								std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 								std::cout << "Continuara...." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							case 2:
 								std::cout << "Sales del pueblo.\nAl salir, sientes como algo se te clava en la esplada, volteas a ver a tu estomago y tienes una espada clavaad, la sacan y caes." << std::endl;
-								seguirJugando(opc);
+								std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+								std::cin >> opc;
+								switch (opc)
+								{
+								case 1:
+									jugando = true;
+									break;
+								case 2:
+									jugando = false;
+									break;
+								default:
+									std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+									break;
+								}
 								break;
 							default:
 								std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1972,7 +3048,20 @@ void Historia(NPC* npc1)
 							std::cout << "Lo saludas y al instante te reconoce: Crei que estaba muerto senior.\nAntes de que le puedas preguntar algo, se escucha un estruendo en el centro del pueblo. La persona con la que estabas hablando corre a ver que pasa y tu lo sigues." << std::endl;
 							std::cout << "Al llegar a la escena te encuentras con alguien que se te hace conocido, se ve fuerte.\nLe ibas a pedir respuestas, pero te interrumpe y te dice: Con que ahi estabas, supongo que no te acordaras de mi, asi que me presento de nuevo, soy: " << nombreV << " y he venido a matarte." << std::endl;
 							std::cout << "Continuara...." << std::endl;
-							seguirJugando(opc);
+							std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+							std::cin >> opc;
+							switch (opc)
+							{
+							case 1:
+								jugando = true;
+								break;
+							case 2:
+								jugando = false;
+								break;
+							default:
+								std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+								break;
+							}
 							break;
 						default:
 							std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
@@ -1982,7 +3071,20 @@ void Historia(NPC* npc1)
 					case 2:
 						std::cout << "Pasas de largo.\nDespues de un rato caminando te desmayas del hambre.\nAl despertar estas rodeado de personas, ves una cara que se te hace conocida conocida.\nTe dice: Un gusto volvernos a encontrar " << nombreP << " me imagino que no me recordaras, asi que me presento antes de matarte, soy: " << nombreV << std::endl;
 						std::cout << nombreV << " te apuniala, mueres." << std::endl;
-						seguirJugando(opc);
+						std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
+						std::cin >> opc;
+						switch (opc)
+						{
+						case 1:
+							jugando = true;
+							break;
+						case 2:
+							jugando = false;
+							break;
+						default:
+							std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
+							break;
+						}
 						break;
 					default:
 						std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
@@ -2003,22 +3105,5 @@ void Historia(NPC* npc1)
 			std::cout << "Escoge una opcion valida(1 o 2)" << std::endl;
 			break;
 		}
-	} while (seguirJugando(opc));
-}
-
-bool seguirJugando(int opc)
-{
-	std::cout << "Quieres repetir la historia?\n1.Si.\n2.No, salir del juego.\n";
-	switch (opc)
-	{
-	case 1:
-		return true;
-		break;
-	case 2:
-		return false;
-		break;
-	default:
-		std::cout << "Escoge una opcion valida(1 0 2)" << std::endl;
-		break;
-	}
+	} while (jugando);
 }
